@@ -1,0 +1,13 @@
+.input{
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 10px;
+    border: 1px solid #8692A6;
+}
+.label{
+    color:#696F79;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: block;
+}

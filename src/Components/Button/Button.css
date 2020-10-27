@@ -1,0 +1,31 @@
+.submit{
+    background: #1565D8;
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #8692A6;
+    color: #ffffff;
+    font-size: 16px;
+
+}
+.Button{
+    margin-top: 10px;
+}
+.google-login{
+    width: 400px;
+    height: 40px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    border-color: #e7dddd;
+    text-decoration-style:solid ;
+    font-size: 16px;
+
+    
+}
+.googleIcoin{
+    height: 20px; 
+    width: 20px;
+   margin-right: 20px;
+   margin-top: -5px;
+ 
+}
