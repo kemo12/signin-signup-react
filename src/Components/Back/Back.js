@@ -6,7 +6,7 @@ class Back extends Component {
   render () {
     return (
       <div className="Back">
-        <a id="back" href="google.com"><p>&lt; back</p></a>
+        <button id="back" onClick={this.props.switch2}>&lt; back</button>
       </div>
       )
 

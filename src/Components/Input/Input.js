@@ -7,6 +7,7 @@ class Input extends Component {
       <div>
         <label htmlFor={this.props.htmlFor}className='label'>{this.props.Content}</label>
         <input
+        type={this.props.type}
           value={this.props.value}
           name={this.props.name}
           onChange={this.props.onChange}

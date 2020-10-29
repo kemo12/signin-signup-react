@@ -33,13 +33,13 @@ class SignUp extends Component {
               <div className='points'>
                 <img id='points' src={points} alt='points' />
               </div>
-              <Quote para={'para1'} />
+              <Quote para={'para1'} start={'start-quote'} />
               <span className='close'>┛</span>
             </div>
           </div>
 
           <div className='right'>
-            <Back />
+            <Back switch2={this.props.switch2} />
             <div className='form-container'>
               <h2 className='h1'>Register Individual Account!</h2>
               <p className='para'>
@@ -48,6 +48,7 @@ class SignUp extends Component {
               <form className='form' onSubmit={(e)=>this.props.onSubmit(e,email,password,repassword,checkbox)}>
                 <p>{this.props.massage}</p>
                 <Input
+                  type={'text'}
                   htmlFor={'email'}
                   className='email'
                   value={email}
@@ -57,6 +58,7 @@ class SignUp extends Component {
                   onChange={this.onChange}
                 />
                 <Input
+                type={'password'}
                   htmlFor={'password'}
                   className='password'
                   value={password}
@@ -66,6 +68,7 @@ class SignUp extends Component {
                   onChange={this.onChange}
                 />
                 <Input
+                  type={'password'}
                   htmlFor={'repassword'}
                   className='repeat-password'
                   value={repassword}

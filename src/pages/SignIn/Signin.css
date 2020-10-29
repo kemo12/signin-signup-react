@@ -1,0 +1,60 @@
+.SignUp{
+    display: flex;
+}
+
+.left-side{
+    margin-left: 80px;
+    margin-top: 68px;
+    width: 100%;
+
+}
+.logo{
+    width:410px ;
+    height: 100px;
+}
+.container-left{
+    display: flex;
+}
+.writer{
+    color:#696F79;
+    
+}
+.joystick{
+    width:150px ;
+    height: 250px;
+    margin-top: 170px;
+    margin-left: -120px;
+    
+}
+.right-side{
+    margin-top: 120px;
+    margin-left: 150px;
+}
+.para{
+    font-size: 18px;
+    color: #9499a1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+} 
+Input{
+margin-top: 10px;
+}
+.massage-container{
+    display: flex;
+}
+.massage{
+    font-size: 23px;
+    margin-left: 100px;
+    margin-top: 20px;
+    color: royalblue;
+    display: block;
+    
+}
+.signup-btn{
+    border: 0px;
+    margin-left: 10px;
+    margin-top: 5px;
+    color: royalblue;
+    
+}

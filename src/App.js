@@ -1,6 +1,7 @@
 import { React, Component } from 'react';
 import './App.css';
-import SignUp from './pages/SignUp/SignUp';
+import Switch from './Switch';
+
 
 class App extends Component {
   state = {
@@ -48,16 +49,38 @@ class App extends Component {
         return{users:newusers,massage:'register is done'}
       }
     );
-    console.log(this.state.users);
-
-
     }
-  };
+    
+    
+  }
+      signin = (e, mail, password) => {
+        e.preventDefault();
+        if(mail===""||password===""){
+         
+          this.setState((prevState)=>{
+            return{massage:'all felids required'}
+          });
+          return ;
+        }else {
+          const login=this.state.users.map((info, index) => {
+            if(mail===info.email&&password===info.password){
+              this.setState((prevState)=>{
+                return{massage:'login success'}
+              });
+            }else{
+              this.setState((prevState)=>{
+                return{massage:'please check your input'}
+              });
+            }
+          });
+
+        }
+      }
 
   render() {
     return (
       <div className='App'>
-        <SignUp onSubmit={this.onSubmit} massage={this.state.massage} />
+       <Switch onSubmit={this.onSubmit} massage={this.state.massage} signin={this.signin}/>
       </div>
     );
   }
