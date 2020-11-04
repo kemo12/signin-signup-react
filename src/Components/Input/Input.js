@@ -3,6 +3,7 @@ import "./input.css";
 
 class Input extends Component {
   render() {
+    const { error } = this.props;
     return (
       <div>
         <label htmlFor={this.props.htmlFor} className="label">
@@ -16,6 +17,7 @@ class Input extends Component {
           className="input"
           placeholder={this.props.placeholder}
         />
+        {error && <div>{error}</div>}
       </div>
     );
   }

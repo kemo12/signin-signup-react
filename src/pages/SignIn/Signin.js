@@ -5,6 +5,7 @@ import Quote from "../../Components/Quote/Qoute";
 import joystick from "../../images/joystick.png";
 import Input from "../../Components/Input/Input";
 import Button from "../../Components/Button/Button";
+import { Link } from "react-router-dom";
 class Signin extends Component {
   state = {
     password: "",
@@ -60,11 +61,10 @@ class Signin extends Component {
             </form>
             <div className="massage-container">
               <p>if you haven"t an account please</p>
-              <button className="signup-btn" onClick={this.props.switch1}>
-                SignUp Now
+              <button className="signup-btn">
+                <Link to="/signup">SignUp Now</Link>
               </button>
             </div>
-            <p className="massage">{this.props.massage}</p>.
           </div>
         </div>
       </div>

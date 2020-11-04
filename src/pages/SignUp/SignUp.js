@@ -23,6 +23,7 @@ class SignUp extends Component {
   };
   render() {
     const { email, password, repassword, checkbox } = this.state;
+    const { error } = this.props;
     return (
       <div className="SignUp">
         <div className="container">
@@ -40,7 +41,7 @@ class SignUp extends Component {
           </div>
 
           <div className="right">
-            <Back switch2={this.props.switch2} />
+            <Back />
             <div className="form-container">
               <h2 className="h1">Register Individual Account!</h2>
               <p className="para">
@@ -52,8 +53,8 @@ class SignUp extends Component {
                   this.props.onSubmit(e, email, password, repassword, checkbox)
                 }
               >
-                <p>{this.props.massage}</p>
                 <Input
+                  error={error.email}
                   type={"text"}
                   htmlFor={"email"}
                   className="email"
@@ -64,6 +65,7 @@ class SignUp extends Component {
                   onChange={this.onChange}
                 />
                 <Input
+                  error={error.password}
                   type={"password"}
                   htmlFor={"password"}
                   className="password"
@@ -74,6 +76,7 @@ class SignUp extends Component {
                   onChange={this.onChange}
                 />
                 <Input
+                  error={error.repassword}
                   type={"password"}
                   htmlFor={"repassword"}
                   className="repeat-password"
@@ -84,6 +87,7 @@ class SignUp extends Component {
                   onChange={this.onChange}
                 />
                 <Checkbox
+                  error={error.checkbox}
                   checkbox={this.state.checkbox}
                   onChange={this.onChange}
                 />
