@@ -19,6 +19,7 @@ class Signin extends Component {
   };
   render() {
     const { email, password } = this.state;
+    const { ax_erorr, error } = this.props;
     return (
       <div className="SignUp">
         <div className="container">
@@ -34,6 +35,7 @@ class Signin extends Component {
             <p className="para">Go inside the best gamers social network!</p>
             <form onSubmit={(e) => this.props.signin(e, email, password)}>
               <Input
+                error={error.email}
                 type={"text"}
                 htmlFor={"email"}
                 className="email"
@@ -44,6 +46,7 @@ class Signin extends Component {
                 onChange={this.onChange}
               />
               <Input
+                error={error.password}
                 type={"password"}
                 htmlFor={"password"}
                 className="password"
@@ -65,6 +68,7 @@ class Signin extends Component {
                 <Link to="/signup">SignUp Now</Link>
               </button>
             </div>
+            <span>{ax_erorr}</span>
           </div>
         </div>
       </div>

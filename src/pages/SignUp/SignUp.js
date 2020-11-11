@@ -23,7 +23,7 @@ class SignUp extends Component {
   };
   render() {
     const { email, password, repassword, checkbox } = this.state;
-    const { error } = this.props;
+    const { error, ax_erorr } = this.props;
     return (
       <div className="SignUp">
         <div className="container">
@@ -102,6 +102,7 @@ class SignUp extends Component {
                   img={google}
                   classname={"google-login"}
                 ></Button>
+                <span>{ax_erorr}</span>
               </form>
             </div>
           </div>
