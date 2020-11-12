@@ -1,26 +1,23 @@
-import { React, Component } from "react";
+import { React } from "react";
 import "./input.css";
 
-class Input extends Component {
-  render() {
-    const { error } = this.props;
-    return (
-      <div>
-        <label htmlFor={this.props.htmlFor} className="label">
-          {this.props.Content}
-        </label>
-        <input
-          type={this.props.type}
-          value={this.props.value}
-          name={this.props.name}
-          onChange={this.props.onChange}
-          className="input"
-          placeholder={this.props.placeholder}
-        />
-        {error && <div>{error}</div>}
-      </div>
-    );
-  }
+function Input(props) {
+  return (
+    <div>
+      <label htmlFor={props.htmlFor} className="label">
+        {props.Content}
+      </label>
+      <input
+        type={props.type}
+        value={props.value}
+        name={props.name}
+        onChange={props.onChange}
+        className="input"
+        placeholder={props.placeholder}
+      />
+      {props.error && <div>{props.error}</div>}
+    </div>
+  );
 }
 
 export default Input;

@@ -2,7 +2,6 @@ import { React, Component } from "react";
 import "./Button.css";
 import google from "../../images/google.jpg";
 class Button extends Component {
-  input() {}
   render() {
     return (
       <div className="Button">

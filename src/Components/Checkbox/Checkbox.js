@@ -1,22 +1,19 @@
-import { React, Component } from "react";
+import { React } from "react";
 import "./Checkbox.css";
-class Checkbox extends Component {
-  render() {
-    const { error } = this.props;
-    return (
-      <div className="Checkbox">
-        <input
-          name="checkbox"
-          className="check"
-          type="checkbox"
-          checked={this.props.Checkbox}
-          onChange={this.props.onChange}
-        />
-        <span>I agree to terms & conditions</span>
-        {error && <div>{error}</div>}
-      </div>
-    );
-  }
+function Checkbox(props) {
+  return (
+    <div className="Checkbox">
+      <input
+        name="checkbox"
+        className="check"
+        type="checkbox"
+        checked={props.Checkbox}
+        onChange={props.onChange}
+      />
+      <span>I agree to terms & conditions</span>
+      {props.error && <div>{props.error}</div>}
+    </div>
+  );
 }
 
 export default Checkbox;
