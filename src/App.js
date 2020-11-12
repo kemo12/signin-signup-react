@@ -1,26 +1,25 @@
-import { React, Component } from "react";
+import React from "react";
 import "./App.css";
+import { useState } from "react";
 import Swtch from "./Switch";
 import * as yup from "yup";
 import axios from "axios";
-class App extends Component {
-  state = {
-    errors: {
-      email: "",
-      password: "",
-      repassword: "",
-      checkbox: "",
-    },
-    erorr: "",
-    isAuthenticated: false,
+function App() {
+  //state
+  const [erorrs, setErrors] = useState({
+    email: "",
+    password: "",
+    repassword: "",
+    checkbox: "",
+  });
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [erorr, setError] = useState("");
+  //methods
+  const handleLogin = () => {
+    setIsAuthenticated(true);
   };
-  handleLogin = () => {
-    this.setState({ isAuthenticated: true });
-  };
-  handleLogout = () => {
-    this.setState({ isAuthenticated: false });
-  };
-  onSubmit = (e, email, password, repassword, checkbox) => {
+
+  const onSubmit = (e, email, password, repassword, checkbox) => {
     e.preventDefault();
     let signUpSchema = yup.object().shape({
       email: yup.string().email().required(),
@@ -34,7 +33,7 @@ class App extends Component {
         { abortEarly: false }
       )
       .then((data) => {
-        this.setState({ errors: {} });
+        setError("");
         //axios
         axios
           .post("https://fake-api-ahmed.herokuapp.com/v1/auth/signup", {
@@ -43,11 +42,11 @@ class App extends Component {
           })
           .then((res) => {
             const sucss = "sign up sucess";
-            this.setState({ erorr: sucss });
+            setError(sucss);
           })
           .catch((err) => {
             const erorr = err.response.data.error;
-            this.setState({ erorr });
+            setError(erorr);
           });
       })
       .catch((err) => {
@@ -56,11 +55,11 @@ class App extends Component {
           errors[params.path] = message;
         });
 
-        this.setState({ errors });
+        setErrors(errors);
       });
   };
 
-  signin = (e, email, password) => {
+  const signin = (e, email, password) => {
     e.preventDefault();
     let signUpSchema = yup.object().shape({
       email: yup.string().email().required(),
@@ -69,7 +68,7 @@ class App extends Component {
     signUpSchema
       .validate({ email, password }, { abortEarly: false })
       .then((data) => {
-        this.setState({ errors: {} });
+        setErrors({});
         //axios
         axios
           .post("https://fake-api-ahmed.herokuapp.com/v1/auth/login", {
@@ -78,12 +77,12 @@ class App extends Component {
           })
           .then((res) => {
             const sucss = "log in sucess";
-            this.setState({ erorr: sucss });
-            this.handleLogin();
+            setError(sucss);
+            handleLogin();
           })
           .catch((err) => {
             const erorr = err.response.data.error;
-            this.setState({ erorr });
+            setError(erorr);
           });
       })
       .catch((err) => {
@@ -92,24 +91,21 @@ class App extends Component {
           errors[params.path] = message;
         });
 
-        this.setState({ errors });
+        setErrors(errors);
       });
   };
 
-  render() {
-    const { errors, erorr, isAuthenticated } = this.state;
-    return (
-      <div className="App">
-        <Swtch
-          isAuthenticated={isAuthenticated}
-          onSubmit={this.onSubmit}
-          signin={this.signin}
-          error={errors}
-          ax_erorr={erorr}
-        />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Swtch
+        isAuthenticated={isAuthenticated}
+        onSubmit={onSubmit}
+        signin={signin}
+        error={erorrs}
+        ax_erorr={erorr}
+      />
+    </div>
+  );
 }
 
 export default App;
